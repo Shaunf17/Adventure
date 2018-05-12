@@ -10,18 +10,20 @@ namespace Adventure
     class Program
     {
         Player PlayerCharacter;
-        Goblin goblin;
 
-        CombatLauncher c = new CombatLauncher();
+        static Program program;
+        CombatLauncher combat;
+        
 
         public Program()
-        { }
+        {
+            program = new Program();
+            combat = new CombatLauncher();
+        }
 
         static void Main(string[] args)
         {
-            Program p = new Program();
-            //CombatLauncher c = new CombatLauncher();
-            p.StartGame();
+            program.StartGame();
             Console.ReadLine();
         }
 
@@ -37,7 +39,7 @@ namespace Adventure
 
             Console.WriteLine("Welcome, " + PlayerCharacter.Name);
 
-            c.Combat(InitializeEnemy(), PlayerCharacter);
+            combat.Combat(InitializeEnemy(), PlayerCharacter);
         }
 
         public Character InitializeEnemy()

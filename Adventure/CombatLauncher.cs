@@ -33,7 +33,7 @@ namespace Adventure
                         break;
                 }
                 Console.WriteLine("");
-                CombatLog(enemy, 5, player);
+                CombatLog(enemy, enemy.AttackPower, player);
             }
 
             Console.WriteLine(string.Format("{0} Defeated!", enemy.Name));

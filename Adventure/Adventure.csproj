@@ -50,6 +50,7 @@
     <Compile Include="Inventory.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Characters\Player.cs" />
+    <Compile Include="Map\Map.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
