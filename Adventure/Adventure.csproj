@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character.cs" />
-    <Compile Include="Enemy.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Enemy.cs" />
+    <Compile Include="Colour.cs" />
+    <Compile Include="CombatLauncher.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Items.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Characters\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
