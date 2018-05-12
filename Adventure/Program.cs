@@ -13,16 +13,12 @@ namespace Adventure
         Goblin goblin;
 
         public Program()
-        {
-            //PlayerCharacter = new Player();
-        }
+        { }
 
         static void Main(string[] args)
         {
             Program p = new Program();
-
             p.StartGame();
-
             Console.ReadLine();
         }
 
@@ -60,37 +56,41 @@ namespace Adventure
                 switch (combatInput)
                 {
                     case "attack":
-                        Attack("goblin");
+                        CombatLog(PlayerCharacter, PlayerCharacter.NormalAttack(), goblin);
                         break;
                     case "run":
                         Run();
                         break;
                 }
-
-                Console.WriteLine(string.Format("You hit for {0}", PlayerCharacter.AttackPower));
-                Console.WriteLine(string.Format("Goblin Health {0}", goblin.Health));
-
-                Attack("player");
-                Console.WriteLine(string.Format("{0} hits for {1}", goblin.Name, goblin.AttackPower));
-                Console.WriteLine(string.Format("Your Health: {0}", PlayerCharacter.Health));
+                Console.WriteLine("");
+                CombatLog(goblin, 5, PlayerCharacter);
             }
 
             Console.WriteLine(string.Format("{0} Defeated!", goblin.Name));
         }
 
-        public void Attack(string target)
+        public void CombatLog(Character name, int damage, Character target)
         {
-            switch (target)
-            {
-                case "goblin":
-                    goblin.Health -= (PlayerCharacter.AttackPower - (1 * goblin.DefencePower));
-                    break;
+            target.Health -= damage; 
 
-                case "player":
-                    PlayerCharacter.Health -= (goblin.AttackPower - (1 * PlayerCharacter.DefencePower));
-                    break;
-            }
+            Console.WriteLine("{0} hit {1} for {2} damage!", name.Name, target.Name, damage);
+            Console.WriteLine("{0} health: {1}", target.Name, target.Health);
         }
+
+
+        //public void Attack(string target)
+        //{
+        //    switch (target)
+        //    {
+        //        case "goblin":
+        //            goblin.Health -= (PlayerCharacter.AttackPower - (1 * goblin.DefencePower));
+        //            break;
+
+        //        case "player":
+        //            PlayerCharacter.Health -= (goblin.AttackPower - (1 * PlayerCharacter.DefencePower));
+        //            break;
+        //    }
+        //}
 
         public void Run()
         { }
