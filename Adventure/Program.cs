@@ -13,13 +13,14 @@ namespace Adventure
 
         static Program program = new Program();
         CombatLauncher combat;
-        PatternMatcher pattern;
-        
+
+        string[] split;
+        char delimiter;
 
         public Program()
         {
             combat = new CombatLauncher();
-            pattern = new PatternMatcher();
+            delimiter = ' ';
         }
 
         static void Main(string[] args)
@@ -52,7 +53,7 @@ namespace Adventure
 
         public void PatternMathcer(string userInput)
         {
-
+            split = userInput.Split(delimiter);
         }
 
         public void Run()
