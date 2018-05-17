@@ -11,13 +11,13 @@ namespace Adventure
     {
         Player PlayerCharacter;
 
-        static Program program;
+        static Program program = new Program();
         CombatLauncher combat;
         
 
         public Program()
         {
-            program = new Program();
+            //program = new Program();
             combat = new CombatLauncher();
         }
 
@@ -29,10 +29,10 @@ namespace Adventure
 
         public void StartGame()
         {
-            SetTextColour("cyan");
+            Colour.Set("cyan");
             Console.WriteLine("Welcome, Adventurer...");
 
-            SetTextColour("white");
+            Colour.Set("white");
             Console.Write("Please name your character: ");
 
             PlayerCharacter = new Player(Console.ReadLine());
@@ -40,6 +40,8 @@ namespace Adventure
             Console.WriteLine("Welcome, " + PlayerCharacter.Name);
 
             combat.Combat(InitializeEnemy(), PlayerCharacter);
+
+            
         }
 
         public Character InitializeEnemy()
@@ -105,40 +107,5 @@ namespace Adventure
 
         public void Run()
         { }
-
-        /// <summary>
-        /// <para>Sets the console output text colour. The colour is only changed once the method is re-called</para>
-        /// </summary>
-        /// <param name="colour"></param>
-        public static void SetTextColour(string colour)
-        {
-            switch (colour)
-            {
-                case "red":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
-                case "blue":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    break;
-                case "green":
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    break;
-                case "cyan":
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    break;
-                case "white":
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-                case "black":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    break;
-                case "yellow":
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    break;
-                case "magenta":
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    break;
-            }
-        }
     }
 }
