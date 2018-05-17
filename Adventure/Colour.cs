@@ -40,6 +40,30 @@ namespace Adventure
                 case "magenta":
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     break;
+                case "gray":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                case "dark red":
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    break;
+                case "dark blue":
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    break;
+                case "dark yellow":
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+                case "dark magenta":
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    break;
+                case "dark cyan":
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+                case "dark green":
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    break;
+                case "dark gray":
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    break;
             }
         }
     }

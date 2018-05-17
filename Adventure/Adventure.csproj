@@ -46,11 +46,12 @@
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\Enemy.cs" />
     <Compile Include="Colour.cs" />
-    <Compile Include="CombatLauncher.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Items.cs" />
+    <Compile Include="Combat\CombatLauncher.cs" />
+    <Compile Include="Inventory\Inventory.cs" />
+    <Compile Include="Inventory\Items.cs" />
     <Compile Include="Characters\Player.cs" />
     <Compile Include="Map\Map.cs" />
+    <Compile Include="Pattern\PatternMatcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
