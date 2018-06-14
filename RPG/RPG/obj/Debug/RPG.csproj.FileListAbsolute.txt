@@ -1,0 +1,6 @@
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\bin\Debug\RPG.exe.config
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\bin\Debug\RPG.exe
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\bin\Debug\RPG.pdb
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\obj\Debug\RPG.exe
+c:\users\developer\documents\visual studio 2013\Projects\RPG\RPG\obj\Debug\RPG.pdb
