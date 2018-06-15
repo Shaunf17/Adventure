@@ -13,6 +13,13 @@ namespace RPG.Characters
         public int AttackPower { get; set; }
         public int DefencePower { get; set; }
 
-        public PlayerClass PlayerClass { get; set; }
+        public int Might { get; set; }
+        public int Awareness { get; set; }
+        public int Constitution { get; set; }
+        public int Wisdom { get; set; }
+        public int Intelligence { get; set; }
+        public int Charisma { get; set; }
+        public int Agility { get; set; }
+        public int Luck { get; set; }
     }
 }

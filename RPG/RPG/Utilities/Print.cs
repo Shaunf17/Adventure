@@ -39,7 +39,7 @@ namespace RPG.Utilities
                 }
             }
 
-            Console.Write("\n" + text);
+            Console.WriteLine(text);
         }
     }
 }

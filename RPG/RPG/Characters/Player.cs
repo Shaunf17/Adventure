@@ -12,7 +12,8 @@ namespace RPG.Characters
     {
         public string Name { get; set; }
 
-        public InventoryManager Inventory { get; set; } 
+        public InventoryManager Inventory { get; set; }
+        public PlayerClass PlayerClass { get; set; }
 
 
         public Player(string Name, int Health, int Mana, int AttackPower, int DefencePower, PlayerClass PlayerClass)
@@ -29,6 +30,15 @@ namespace RPG.Characters
         public void Add(string item)
         {
             Console.WriteLine("Added {0} to inventory", item);
+        }
+
+        public void PrintStats()
+        {
+            Console.WriteLine("Name: {0}", Name);
+            Console.WriteLine("Health: {0}", Health);
+            Console.WriteLine("Mana: {0}", Mana);
+            Console.WriteLine("Attack Power: {0}", AttackPower);
+            Console.WriteLine("Defense Power: {0}", DefencePower);
         }
     }
 }

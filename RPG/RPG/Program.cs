@@ -13,6 +13,7 @@ namespace RPG
     {
         static void Main(string[] args)
         {
+            UserInterface.Initialize();
             UserInterface.CreatePlayer();
         }
     }
