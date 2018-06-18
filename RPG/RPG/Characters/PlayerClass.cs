@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RPG.Utilities;
+using RPG.Magic;
 
 namespace RPG.Characters
 {
@@ -13,6 +14,9 @@ namespace RPG.Characters
         public string Name { get; set; }
         public string Description { get; set; }
         public string ClassColour { get; set; }
+
+        public List<School> Schools = new List<School>();
+        public List<String> Test { get; set; }
 
         public void ModifyPlayer(int stat)
         {
@@ -27,7 +31,10 @@ namespace RPG.Characters
             ID = 1;
             Name = "Warrior";
             ClassColour = "red";
-            Description = "Born and bred for war, this class excels in all things physical. Using their brute MIGHT and CONSTITUTION the Warrior can cleave a path wherever they so desire"; 
+            Description = "Born and bred for war, this class excels in all things physical. Using their brute MIGHT and CONSTITUTION the Warrior can cleave a path wherever they so desire";
+
+            Schools.Add(new Warfare() { });
+            Schools.Add(new Pyromancy() { });
         }
     }
 
@@ -50,6 +57,12 @@ namespace RPG.Characters
             Name = "Mage";
             ClassColour = "blue";
             Description = "Calling upon their WISDOM and INTELLIGENCE, the Mage can diffuse any situation with a carefully cast spell or apt potion";
+
+            Schools.Add(new Pyromancy() { });
+            Schools.Add(new Hydromancy() { });
+            Schools.Add(new Geomancy() { });
+            Schools.Add(new Aeromancy() { });
+            Schools.Add(new Arcana() { });
         }
     }
 
@@ -64,6 +77,17 @@ namespace RPG.Characters
         }
     }
 
+    public class Necromancer : PlayerClass
+    {
+        public Necromancer()
+        {
+            ID = 5;
+            Name = "Necromancer";
+            ClassColour = "darkMagenta";
+            Description = "Chanelling dark magic, the Necromancer approaches combat with unquestionable INTELLIGENCE and heart CONSTITUTION, providing enough innate ability and staying power to raise the dead and turn the tide of battle";
+        }
+    }
+
 
     public class PlayerClassList
     {
@@ -75,13 +99,20 @@ namespace RPG.Characters
             ClassList.Add(new Mage { });
             ClassList.Add(new Rogue { });
             ClassList.Add(new Paladin { });
+            ClassList.Add(new Necromancer { });
         }
 
         public void PrintList()
         {
             foreach (var item in ClassList)
             {
-                Print.SlowLine(String.Format("Name: {0} \tID: {1} \tDescription: {2}", item.Name, item.ID, item.Description), 0, item.ClassColour);
+                Print.SlowLine(String.Format("Name: {0} \nDescription: {1}", item.Name, item.Description), 0, item.ClassColour);
+                Print.Slow("Schools: \t");
+                foreach(var school in item.Schools)
+                {
+                    Print.Slow(school.Name + "\t");
+                }
+                Print.SlowLine("\n");
             }
         }
 

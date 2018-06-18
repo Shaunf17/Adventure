@@ -29,10 +29,22 @@ namespace RPG
             Print.SlowLine("");
             string playerName = Console.ReadLine();
 
-            Print.SlowLine("Please enter your desired class...");
-            string playerClass = Console.ReadLine();
+            
+            string playerClass = "";
+            while (String.IsNullOrWhiteSpace(playerClass))
+            {
+                Print.SlowLine("Please enter your desired class...");
+                lst.PrintList();
+                Print.Slow("");
+                playerClass = Console.ReadLine();
 
-            if (playerName.ToUpper().Equals("JESUS"))
+                if (lst.Find(playerClass) == null)
+                    playerClass = null;
+            }
+
+            Print.SlowLine("");
+
+            if (playerName.ToUpper().Equals("CHRONO"))
                 player = new Player(playerName, 10000, 20000, 1000000, 50000, lst.Find(playerClass));
             else
                 player = new Player(playerName, 100, 20, 10, 5, lst.Find(playerClass));

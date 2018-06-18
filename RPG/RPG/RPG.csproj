@@ -48,7 +48,9 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="Inventory\InventoryManager.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Magic\School.cs" />
     <Compile Include="Magic\Signs.cs" />
+    <Compile Include="Magic\Spell.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
