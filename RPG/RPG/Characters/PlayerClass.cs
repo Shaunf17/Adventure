@@ -72,7 +72,7 @@ namespace RPG.Characters
         {
             ID = 4;
             Name = "Paladin";
-            ClassColour = "darkYellow";
+            ClassColour = "yellow";
             Description = "Utilising MIGHT and WISDOM, the Paladin seeks to rid the world of evil-doers. Taking authority into their own hands, the use sword and spell to dispense justice";
         }
     }
@@ -116,16 +116,11 @@ namespace RPG.Characters
             }
         }
 
-        public PlayerClass Find(string find)
+        public PlayerClass Find(string name)
         {
-            foreach (var item in ClassList)
-            {
-                if (find.ToUpper() == item.Name.ToUpper())
-                {
-                    return item;
-                }
-            }
-            return null;
+            var item = ClassList.Find(c => c.Name.ToUpper() == name.ToUpper());
+
+            return item;
         }
     }
 }

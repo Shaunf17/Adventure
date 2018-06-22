@@ -15,6 +15,7 @@ namespace RPG.Characters
         public InventoryManager Inventory { get; set; }
         public PlayerClass PlayerClass { get; set; }
 
+        private ItemList ItemList = new ItemList();
 
         public Player(string Name, int Health, int Mana, int AttackPower, int DefencePower, PlayerClass PlayerClass)
         {
@@ -27,9 +28,18 @@ namespace RPG.Characters
             this.PlayerClass = PlayerClass;
         }
 
-        public void Add(string item)
+        public void Add(int item)
         {
-            Console.WriteLine("Added {0} to inventory", item);
+            try
+            {
+                var itemToAdd = ItemList.Find(item);
+
+                Console.WriteLine("Added {0} to inventory", itemToAdd.Name);
+            }
+            catch
+            {
+                Console.WriteLine("Item not found");
+            }            
         }
 
         public void PrintStats()

@@ -63,12 +63,52 @@ namespace RPG.Magic
         }
     }
 
+    public class Necromancy : School
+    {
+        public Necromancy()
+        {
+            ID = 6;
+            Name = "Necromancy";
+            Descritpion = "";
+        }
+    }
+
+    public class Summoning : School
+    {
+        public Summoning()
+        {
+            ID = 7;
+            Name = "Summoning";
+            Descritpion = "";
+        }
+    }
+
     public class Warfare : School
     {
         public Warfare()
         {
-            ID = 6;
+            ID = 8;
             Name = "Warfare";
+            Descritpion = "";
+        }
+    }
+
+    public class Subterfuge : School
+    {
+        public Subterfuge()
+        {
+            ID = 9;
+            Name = "Subterfuge";
+            Descritpion = "";
+        }
+    }
+
+    public class Guardian : School
+    {
+        public Guardian()
+        {
+            ID = 10;
+            Name = "Guardian";
             Descritpion = "";
         }
     }

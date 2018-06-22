@@ -9,12 +9,24 @@ using RPG.Map;
 
 namespace RPG
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             UserInterface.Initialize();
             UserInterface.CreatePlayer();
+
+            UserInterface.MainLoop();
+        }
+
+        public static void Exit()
+        {
+            Exit(0);
+        }
+
+        public static void Exit(int exitCode)
+        {
+            Environment.Exit(exitCode);
         }
     }
 }

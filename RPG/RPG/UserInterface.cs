@@ -13,12 +13,16 @@ namespace RPG
 {
     public static class UserInterface
     {
-        private static PlayerClassList lst = new PlayerClassList();
-        private static Player player;
+        private static PlayerClassList ClassList;
+        private static GameMap Map;
+        private static Player Player;
         
         public static void Initialize()
         {
-            lst.CreateClassList();
+            ClassList = new PlayerClassList();
+            Map = new GameMap();
+
+            ClassList.CreateClassList();
         }
 
         public static void CreatePlayer()
@@ -33,31 +37,71 @@ namespace RPG
             string playerClass = "";
             while (String.IsNullOrWhiteSpace(playerClass))
             {
+                Console.Clear();
                 Print.SlowLine("Please enter your desired class...");
-                lst.PrintList();
+                ClassList.PrintList();
                 Print.Slow("");
                 playerClass = Console.ReadLine();
 
-                if (lst.Find(playerClass) == null)
+                if (ClassList.Find(playerClass) == null)
                     playerClass = null;
             }
 
             Print.SlowLine("");
 
             if (playerName.ToUpper().Equals("CHRONO"))
-                player = new Player(playerName, 10000, 20000, 1000000, 50000, lst.Find(playerClass));
+                Player = new Player(playerName, 10000, 20000, 1000000, 50000, ClassList.Find(playerClass));
             else
-                player = new Player(playerName, 100, 20, 10, 5, lst.Find(playerClass));
+                Player = new Player(playerName, 100, 20, 10, 5, ClassList.Find(playerClass));
 
+            Console.Clear();
             Print.Slow("Greetings, ");
-            Print.SlowLine(player.Name, 0, "blue");
+            Print.SlowLine(Player.Name, 0, "blue");
             Print.Slow("Your class is ");
-            Print.SlowLine(player.PlayerClass.Name, 0, player.PlayerClass.ClassColour);
-            Print.SlowLine(player.PlayerClass.Description);
+            Print.SlowLine(Player.PlayerClass.Name, 0, Player.PlayerClass.ClassColour);
+            Print.SlowLine(Player.PlayerClass.Description);
 
-            player.PrintStats();
+            Player.PrintStats();
 
             Console.ReadLine();
+        }
+
+        public static void AddToInventory()
+        {
+            Console.WriteLine("Add something to inventory...");
+            string playerItemStr = Console.ReadLine();
+            int playerItemInt = 0;
+            if(int.TryParse(playerItemStr, out playerItemInt))
+                Player.Add(playerItemInt);
+        }
+
+        public static void MainLoop()
+        {
+            string playerInput = "";
+            while (Player.Health > 0 || !playerInput.ToUpper().Equals("EXIT"))
+            {
+                playerInput = Console.ReadLine();
+
+                if (playerInput.ToUpper().Equals("EXIT"))
+                {
+                    Console.WriteLine("Goodbye...");
+                    Program.Exit();
+                }
+
+                switch (playerInput.ToUpper())
+                {
+                    case "DEBUG":
+                        System.Diagnostics.Debugger.Break();
+
+                        Console.ReadLine();
+                        break;
+
+                    case "MOVE":
+                        Map.PrintMap();
+                        break;
+                        
+                }
+            } //End of while loop
         }
     }
 }
